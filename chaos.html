@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>/chaos • NeuroSpicyCoded</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="term scan">
+      <div class="head"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div style="opacity:.7">/usr/bin/chaos</div></div>
+      <div id="out" class="body ansi"></div>
+    </div>
+    <p style="opacity:.7;margin-top:10px">Press H to reroll tips. Press G to glitch. Press B for beep.</p>
+  </div>
+  <div class="bar"><span class="badge on">CHAOS</span><span id="tip" style="opacity:.8"></span></div>
+<script>
+const tips=['Tip: mark assumptions. Then attack them','Tip: read the changelog like scripture','Tip: request test creds early','Tip: paste screenshots into notes while you work','Tip: collect error strings for Google food'];
+const lines=['<span class="p3">boot&gt;</span> <span class="p1">NeuroDemon</span> <span class="p2">subsystem</span> online','<span class="p3">env&gt;</span> sensory-friendly UI engaged','<span class="p3">motto&gt;</span> <span class="shimmer">neurodivergent logic, flawless execution</span>','<span class="p3">id&gt;</span> User-Agent: ADHD/1337; Accept: Exploits/*','<span class="p3">warn&gt;</span> <span class="w">Scope is law</span>','<span class="p3">err&gt;</span> <span class="e">Patience not found. Results delivered</span>'];
+const out=document.getElementById('out'); const tip=document.getElementById('tip');
+function type(arr,speed=16){return new Promise(res=>{out.innerHTML='';let i=0,j=0,active='';function tick(){if(i<arr.length){const line=arr[i];if(j<line.length){active+=line[j++];out.innerHTML=arr.slice(0,i).join('\n')+'\n'+active+'▌';}else{out.innerHTML=arr.slice(0,i+1).join('\n');i++;j=0;active='';}setTimeout(tick,speed);}else{out.innerHTML+='\n<span class="p3">chaos@web</span>:~$ ▌';res();}}tick();});}
+function reroll(){ tip.textContent=tips[Math.floor(Math.random()*tips.length)]; }
+function glitch(){ document.body.style.filter='saturate(1.25) hue-rotate(8deg)'; setTimeout(()=>document.body.style.filter='none',200); }
+function beep(){ new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABYAAAABAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=').play().catch(()=>{}); }
+type(lines,16).then(reroll);
+window.addEventListener('keydown',e=>{ if(e.key.toLowerCase()==='h') reroll(); if(e.key.toLowerCase()==='g') glitch(); if(e.key.toLowerCase()==='b') beep(); });
+</script>
+</body>
+</html>

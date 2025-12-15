@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact • NeuroSpicyCoded</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .contact-card {
+      border: 1px solid #222;
+      border-radius: 12px;
+      background: #111;
+      padding: 20px;
+      margin: 16px 0
+    }
+
+    .kv {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 8px 12px
+    }
+
+    .kv div {
+      padding: 2px 0
+    }
+
+    .codeblock {
+      background: #0b0b0b;
+      border: 1px solid #222;
+      border-radius: 8px;
+      padding: 12px;
+      white-space: pre;
+      overflow: auto
+    }
+
+    .row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px
+    }
+
+    .btn2 {
+      padding: 10px 14px;
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 800
+    }
+
+    .mini {
+      color: var(--muted);
+      font-size: 14px
+    }
+  </style>
+  <script>
+    function copySecurity(){
+  const txt = [
+    "Contact: mailto:admin@neurospicycoded.com",
+    "Preferred-Languages: en",
+    "Policy: https://www.neurospicycoded.com/security.txt"
+  ].join("\n");
+  navigator.clipboard.writeText(txt).then(()=>alert("Security contact copied"));
+}
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <a href="/">Home</a>
+      <a href="/services.html">Services</a>
+      <a href="/neurodemon.html">NeuroDemon</a>
+    </div>
+
+    <div class="h1 logo">Contact</div>
+
+    <div class="contact-card">
+      <h3>Email</h3>
+      <div class="kv mono">
+        <div>Email</div>
+        <div>Admin@neurospicycoded.com</div>
+      

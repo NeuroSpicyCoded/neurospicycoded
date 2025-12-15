@@ -1,0 +1,3 @@
+Contact: mailto:admin@neurospicycoded.com
+Preferred-Languages: en
+Policy: https://www.neurospicycoded.com/security.txt

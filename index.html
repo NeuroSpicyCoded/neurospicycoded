@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NeuroSpicyCoded</title>
+  <meta name="description" content="Where Neurodiversity Meets Cybersecurity. Elegant exploits. Flawless fixes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Urbanist:wght@300;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #05050a;
+      --ink: #e600b5;
+      --ink-soft: #b90094;
+      --vio: #7a5cff;
+      --glow: #5cf6ff;
+      --text: #f5f6f7;
+      --muted: #9aa0a6;
+      --card: #0b0b14;
+      --ring: 0 0 25px rgba(230, 0, 181, .45), 0 0 50px rgba(92, 246, 255, .15);
+      --ease: cubic-bezier(.22, .61, .36, 1);
+      --radius: 18px
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #06060e, #05050a 35%, #06060e);
+      color: var(--text);
+      font-family: "Urbanist", system-ui, sans-serif;
+    }
+
+    a {
+      color: var(--glow);
+      text-decoration: none
+    }
+
+    a:hover {
+      filter: brightness(1.1)
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px;
+      text-align: center
+    }
+
+    header.nav {
+      background: linear-gradient(180deg, rgba(5, 5, 10, .9), rgba(5, 5, 10, .58));
+      border-bottom: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .nav-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center
+    }
+
+    .brand img {
+      width: 350px;
+      filter: drop-shadow(0 0 8px rgba(230, 0, 181, .22))
+    }
+
+    nav.kbd {
+      display: flex;
+      gap: 22px;
+      justify-content: center;
+      padding-bottom: 12px;
+      font-family: "IBM Plex Mono", ui-monospace
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      background: linear-gradient(90deg, var(--ink), var(--ink-soft));
+      color: #fff;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: var(--ring);
+      border: none;
+      cursor: pointer
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 999px
+    }
+
+    .hero-title {
+      font-size: clamp(34px, 6.2vw, 64px);
+      font-weight: 800;
+      background: conic-gradient(from 200deg, var(--text), #c8c9ff 25%, #bff9ff 40%, var(--text) 60%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: clamp(16px, 2.2vw, 20px);
+      margin-top: 10px;
+      max-width: 68ch;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .hero-cta {
+      margin-top: 22px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center
+    }
+
+    .hero-note {
+      margin-top: 14px;
+      font-family: "IBM Plex Mono", ui-monospace;
+      color: #fff5a2
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: var(--radius);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .45)
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin: 0 0 14px;
+      font-weight: 800
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 32px
+    }
+
+    .thumb {
+      position: relative;
+      height: 165px;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      background: #0a1220;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .thumb img {
+      max-height: 100%;
+      object-fit: contain;
+      margin: auto
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-items: start
+    }
+
+    .idcard {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 18px;
+      text-align: left
+    }
+
+    .idcard img {
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(230, 0, 181, .28)
+    }
+
+    .idcard p {
+      margin: 0 0 10px
+    }
+
+    .idcard .name {
+      font-family: "Urbanist", system-ui, sans-serif;
+      font-weight: 800;
+      margin: 0 0 6px
+    }
+
+    .idcard .role {
+      color: var(--muted);
+      margin: 0 0 8px
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+      padding: 18px
+    }
+
+    label {
+      font-family: "IBM Plex Mono", ui-monospace
+    }
+
+    input,
+    textarea {
+      background: #0b0b14;
+      border: 1px solid rgba(255, 255, 255, .09);
+      color: var(--text);
+      padding: 12px 14px;
+      border-radius: 12px;
+      width: 100%
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 28px;
+      color: var(--muted)
+    }
+
+    /* Tablet layout */
+    @media(max-width:1024px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    /* Phone layout, plus stacked bio card */
+    @media(max-width:700px) {
+      .cards {
+        grid-template-columns: 1fr
+      }
+
+      .idcard {
+        grid-template-columns: 1fr;
+        text-align: center
+      }
+
+      .idcard img {
+        margin: 0 auto
+      }
+
+      .idcard div {
+        text-align: center
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand"><img src="assets/image.jpg?v=16" alt="NeuroSpicyCoded logo"></div>
+      <nav class="kbd">
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap hero">
+      <h1 class="hero-title">Where Neurodiversity Meets Cybersecurity.</h1>
+      <p class="hero-sub">I assess your perimeter. I uncover the flaws. I lock it down using the black hat tactics and
+        red team mastery that make me your most dangerous ally.</p>
+      <div class="hero-cta">
+      </div>
+    </section>
+
+    <section id="work" class="wrap">
+      <h2 class="section-title">Services</h2>
+      <div class="cards">
+        <a class="panel card linkcard" href="">
+          <div class="thumb"><img src="assets/2.png?v=16" alt="AI integration"></div>
+          <h3>Threat led AI integration</h3>
+          <p>Model risk review, guardrails, and attack simulation with clear fixes.</p>
+        </a>
+        <a class="panel card linkcard" href="">
+          <div class="thumb"><img src="assets/3.png?v=16" alt="Web app pentest"></div>
+          <h3>Web application testing</h3>
+          <p>Real attacker tactics, end to end exploit chains, actionable remediation.</p>
+        </a>
+        <a class="panel card linkcard" href="">
+          <div class="thumb"><img src="assets/4.png?v=16" alt="Wireless and edge audits"></div>
+          <h3>Wireless and edge audits</h3>
+          <p>Rogue discovery, evil twin prevention, hardening playbooks that ship.</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="wrap contact">
+      <div class="panel idcard">
+        <img src="assets/Drea%20LaShay%20-%20Japanese%20Anime%20Hacker%20Style%203.png?v=16" alt="Portrait representing NeuroSpicyCoded">
+        <div>
+          <h3 class="name">NeuroSpicyCoded</h3>
+          <p class="role">Red Team Specialist. Black Hat Tactics for Ethical Use.</p>
+          <p>Targeted testing and precise exploitation that expose real risk. Clean fixes that hold under pressure.</p>
+          <p style="font-family:'IBM Plex Mono',ui-monospace">
+            Specialties: Offensive Pentesting, Advanced Red Team Operations, Black Hat Tactics for Authorized
+            Engagements, AI driven monitoring and threat detection for personal and business networks in progress.
+          </p>
+        </div>
+      </div>
+
+      <p style="font-family:'Urbanist',system-ui,sans-serif; font-weight:600; font-size:18px;">
+        Have a network, system, or application you need secured? Send me the details.
+      </p>
+
+      <form class="panel" id="contact-form" action="https://formspree.io/f/xdkdbjon" method="POST">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@company.com" required>
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me what you want to test, build, or secure."></textarea>
+        </div>
+        <div><button class="cta" type="submit">Send secure request</button></div>
+        <p class="muted">I debug. I secure. I deliver.</p>
+        <div id="form-status" class="notice" role="status"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div>© <span id="y"></span> NeuroSpicyCoded · Made with caffeine, sleep deprivation, and divine rage.</div>
+    <div class="kbd" style="margin-top:6px">
+      <a href="services.html">Services</a> • <a href="#contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Anchor click neutralizer. Leaves visuals and form submit intact. -->
+  <script>
+    (function() {
+            function kill(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+
+            function neutralize(a) {
+                if (a.closest('form')) return; // never touch form controls
+                a.addEventListener('click', kill, {
+                    capture: true
+                });
+                a.addEventListener('auxclick', kill, {
+                    capture: true
+                });
+                a.addEventListener('mousedown', kill, {
+                    capture: true
+                });
+                a.addEventListener('mouseup', kill, {
+                    capture: true
+                });
+                a.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') kill(e);
+                }, {
+                    capture: true
+                });
+            }
+
+            function run() {
+                document.querySelectorAll('a').forEach(neutralize);
+                new MutationObserver(() => {
+                    document.querySelectorAll('a').forEach(neutralize);
+                }).observe(document.documentElement, {
+                    childList: true,
+                    subtree: true
+                });
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', run);
+            } else {
+                run();
+            }
+        })();
+  </script>
+
+</body>
+
+</html>
